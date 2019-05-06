@@ -10,7 +10,6 @@ let actions = document.getElementById('actions');
 
 //agregando el evento para el boton
 send.addEventListener('click', () => {
-    console.log('que paso');
     socket.emit('chat-message', {
         'username': username.value,
         'message': message.value
@@ -18,7 +17,18 @@ send.addEventListener('click', () => {
 });
 
 socket.on('chat-message', (data) => {
-    actions.innerHTML += `<p>
+    actions.innerHTML='';
+    output.innerHTML += `<p>
     <strong> ${data.username}
     </strong>: ${data.message} </p> `
 });
+
+message.addEventListener('keypress',()=>{
+    socket.emit('typing-message',username.value);
+});
+
+socket.on('typing-message',(name)=>{
+    actions.innerHTML = `<p>
+    <em> ${name} typing...
+    </em> </p> `
+})

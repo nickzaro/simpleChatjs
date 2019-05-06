@@ -25,6 +25,12 @@ io.on('connection', (socket) => {
         console.log(data);
         //emitir a todos los clientes conectados
         io.sockets.emit('chat-message', data);
+    });
+
+    // escuchando aviso de escritura de mensajes
+    //y comunicarlo a todos los otros clientes
+    socket.on('typing-message', (name) => {
+        socket.broadcast.emit('typing-message', name);
     })
 
-})
+});
