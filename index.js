@@ -17,3 +17,13 @@ const server = app.listen(app.get('port'),()=>{
 
 // io contiene al socket listo
 const io = socketIO.listen(server);
+
+//hilo y socket para atender clientes
+io.on('connection',(socket)=>{
+    console.log('new connection: ', socket.id);
+    socket.on('chat-message',(data)=>{
+        console.log(data);
+        
+    })
+
+})
