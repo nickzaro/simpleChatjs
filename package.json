@@ -1,0 +1,27 @@
+{
+  "name": "simpleChatjs",
+  "version": "1.0.0",
+  "description": "Un simple chat web, usando express e socketio",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickzaro/simpleChatjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickzaro/simpleChatjs/issues"
+  },
+  "homepage": "https://github.com/nickzaro/simpleChatjs#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
